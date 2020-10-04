@@ -4,10 +4,10 @@
 #
 library(shiny)
 
-devtools::install_github("https://github.com/AqsaIftikhar25/APILab.git" , upgrade = "always")
-library("APIpkg")
-#source("./votesinfo.R")
-#dataContext <- vott()#calling API outside in order to download all required data
+devtools::install_github("https://github.com/AqsaIftikhar25/APILab.git" , upgrade = "always", force = TRUE)
+library(APIpkg)
+#source("votesinfo.R")
+dataContext <- vott("C",2015,2020)#calling API outside in order to download all required data
 
 
 # Define UI for application that draws a histogram
@@ -20,7 +20,7 @@ ui <- fluidPage(
     # Sidebar with a slider input for every year 
     sidebarLayout(
         sidebarPanel(
-              sliderInput(inputId = "year",
+              sliderInput(inputId = "bins",
                         label = "Choose a year to see votes to each person",
                         min = 2002,
                         max = 2020,
@@ -41,10 +41,11 @@ server <- function(input, output) {
         # generate year based on input$year from ui.R
         #i <- 30
         #x    <- approve
-       # approve <- seq(min(x, na.rm = TRUE), max(x, na.rm = TRUE), length.out = i+1)
-x <- c(1:length(nam))
+       #bins <- seq(min(dataContext[,2]), max(dataContext[,2]), length.out = input$bins+1)
+       
+        x <- c(1:length(dataContext[,1]))
         # draw the histogram with the specified number of bins
-        plot(x, approve, type = "h", col = 'darkblue', border = 'white', main = paste("Histogram of votes"))
+        plot(x, dataContext[,2] ,type = "h", col = 'darkblue', border = 'white', main = paste("Histogram of votes"),xlab = "Members", ylab = "Number of approve")
     })
 }
 
