@@ -10,7 +10,11 @@
 
 library(shiny)
 
+<<<<<<< HEAD
 devtools::install_github("AqsaIftikhar25/APILab/APIpkg")
+=======
+devtools::install_github("AqsaIftikhar25/APILab/APIpkg" , upgrade = "always", force = TRUE)
+>>>>>>> 1bb63b49c141bb1ce4843c85c2dfaf9d2554bd53
 library(APIpkg)
 #source("votesinfo.R")
 
