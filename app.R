@@ -10,7 +10,7 @@
 
 library(shiny)
 
-devtools::install_github("https://github.com/AqsaIftikhar25/APILab.git" , upgrade = "always", force = TRUE)
+devtools::install_github("AqsaIftikhar25/APILab/APIpkg")
 library(APIpkg)
 #source("votesinfo.R")
 
@@ -26,11 +26,11 @@ ui <- fluidPage(
     # Sidebar with a slider input for every year 
     sidebarLayout(
         sidebarPanel(
-              sliderInput(inputId = "bins",
-                        label = "Choose a year to see votes to each person",
-                        min = 2002,
-                        max = 2020,
-                        value = 2010)
+              sliderInput("bins",
+                        label = "Choose frequency of approve votes",
+                        min = 1,
+                        max = 100,
+                        value = 10)
         ),
 
         # Show a plot of the generated distribution
@@ -46,12 +46,13 @@ server <- function(input, output) {
     output$votout <- renderPlot({
         # generate year based on input$year from ui.R
         #i <- 30
-        #x    <- approve
-       #bins <- seq(min(dataContext[,2]), max(dataContext[,2]), length.out = input$bins+1)
+        #x    <- faithful[, 2] #seq(min(as.integer(dataContext[,1]), na.rm = TRUE), max(as.integer(dataContext[,1]), na.rm = TRUE),by = 10)
+        x = as.numeric(as.character(dataContext[,2]))
+        bins <- seq(min(as.numeric(as.character(dataContext[,2])), na.rm = TRUE), max(as.numeric(as.character(dataContext[,2])), na.rm = TRUE), length.out = input$bins+1)
        
-        x <- c(1:length(dataContext[,1]))
+        #x <- c(1:length(dataContext[,1]))
         # draw the histogram with the specified number of bins
-        plot(x, dataContext[,2] ,type = "h", col = 'darkblue', border = 'white', main = paste("Histogram of votes"),xlab = "Members", ylab = "Number of approve")
+        hist(x = x, breaks = bins ,type = "h", col = 'darkblue', border = 'white', main = paste("Histogram of votes"),xlab = "Votes approve", ylab = "Frequency of approve")
     })
 }
 
