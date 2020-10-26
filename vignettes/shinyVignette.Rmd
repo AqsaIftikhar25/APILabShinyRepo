@@ -1,0 +1,34 @@
+---
+title: "shinyVignette"
+author: "Aqsa, Chen and Samira"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{shinyvignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(Shinypkg)
+```
+
+## Shiny application
+
+This package contains **Shiny application** that call and use the data from *APIpkg* package and with use of that data which comes from **vott()** function, draws a histogram. This histogram is frequency of the vote information based on parties.
+
+
+The histogram can modify with a sidebar with a slider for approve votes.
+By slider, user is able to change the number of approve votes pack and get frequency of approve votes inside each pack.
+
+
+```
+shinyApp(ui = ui, server = server)
+```
+

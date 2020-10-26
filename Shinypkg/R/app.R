@@ -1,16 +1,17 @@
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+#' vote information of parliament members
+#' 
 #' @name Shinypkg vote information
-#' @description take the data from APILab and APIpkg and ploting the number of approve for each parties member, in given year.
+#' @description take the data from APILab and APIpkg and ploting vote frequency of the number of approve for each parties member.
+#' @return ui. Sidebar with a slider input for approve votes
+#' @usage shinyApp(ui = ui, server = server)
+# @importFrom APIpkg
 #' @export
 
 
 
 library(shiny)
 
-devtools::install_github("AqsaIftikhar25/APILab/APIpkg")
+devtools::install_github("AqsaIftikhar25/APILab")
 library(APIpkg)
 #source("votesinfo.R")
 
@@ -23,7 +24,7 @@ ui <- fluidPage(
     # Application title
     titlePanel("Vote information based on Parties"),
     
-    # Sidebar with a slider input for every year 
+    # Sidebar with a slider input for approve votes
     sidebarLayout(
         sidebarPanel(
             sliderInput("bins",

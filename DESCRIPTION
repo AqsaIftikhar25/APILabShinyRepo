@@ -3,11 +3,16 @@ Type: Package
 Title: Plot vote approve
 Version: 1.0
 Date: 2020-10-04
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
+Author: CHEN, Agsa and Samira
+Maintainer: CHEN <Olivandtempest@gmail.com>,Aqsa<aqsaciit@gmail.com>,Samira<samiraee@gmail.com>
 Description: ploting the number of approve for each parties member, in given year.
 Depends: R(>= 3.5.0)
 License: GPL-3
 LazyData:true
 Encoding:UTF-8
 RoxygenNote: 7.1.1
+Suggests: 
+    testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
