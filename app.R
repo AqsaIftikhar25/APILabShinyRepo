@@ -1,6 +1,6 @@
 #' vote information of parliament members
 #' 
-#' @name Lab5Try vote information
+#' @name Shinypkg vote information
 #' @description take the data from APILab and APIpkg and ploting vote frequency of the number of approve for each parties member.
 #' @return ui. Sidebar with a slider input for approve votes
 #' @usage shinyApp(ui = ui, server = server)
@@ -9,7 +9,7 @@
 
 
 
-library(Lab5Try)
+library(Shinypkg)
 
 devtools::install_github("AqsaIftikhar25/APILab")
 library(APIpkg)
