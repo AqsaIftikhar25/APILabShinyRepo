@@ -3,7 +3,7 @@ Type: Package
 Title: Plot vote approve
 Version: 1.0
 Date: 2020-10-04
-Author: CHEN, Agsa and Samira
+Author: CHEN, Aqsa and Samira
 Maintainer: CHEN <Olivandtempest@gmail.com>,Aqsa<aqsaciit@gmail.com>,Samira<samiraee@gmail.com>
 Description: ploting the number of approve for each parties member, in given year.
 Depends: R(>= 3.5.0)
